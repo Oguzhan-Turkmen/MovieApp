@@ -1,17 +1,16 @@
 package com.oguzhanturkmen.movieapp.ui
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import androidx.lifecycle.Observer
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
-import com.oguzhanturkmen.movieapp.MainViewModell
-import com.oguzhanturkmen.movieapp.R
+import com.oguzhanturkmen.movieapp.MainViewModel
 import com.oguzhanturkmen.movieapp.databinding.FragmentSavedMovieBinding
 import com.oguzhanturkmen.movieapp.rvAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -20,13 +19,17 @@ import dagger.hilt.android.AndroidEntryPoint
 class SavedMovieFragment : Fragment() {
     private var _binding: FragmentSavedMovieBinding? = null
     private val binding get() = _binding!!
-    val viewModel by lazy {
-        ViewModelProvider(this, defaultViewModelProviderFactory).get(MainViewModell::class.java)
-    }
     private lateinit var rvAdapter: rvAdapter
-    override fun onResume() {
-        super.onResume()
-        viewModel.getSavedMovies()
+    val viewModel by lazy {
+        ViewModelProvider(this, defaultViewModelProviderFactory).get(MainViewModel::class.java)
+    }
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        _binding = FragmentSavedMovieBinding.inflate(inflater,container,false)
+        return binding.root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -35,7 +38,6 @@ class SavedMovieFragment : Fragment() {
         viewModel.savedlivedata.observe(viewLifecycleOwner, Observer {
             rvAdapter.differ.submitList(it)
         })
-
 
         val itemTouchHelperCallback = object : ItemTouchHelper.SimpleCallback(
             ItemTouchHelper.UP or ItemTouchHelper.DOWN,
@@ -55,6 +57,7 @@ class SavedMovieFragment : Fragment() {
                 Snackbar.make(view, "DELETED", Snackbar.LENGTH_SHORT).apply {
                     setAction("Undo") {
                         viewModel.saveMovie(movie)
+                        viewModel.getSavedMovies()
                     }
                     show()
                 }

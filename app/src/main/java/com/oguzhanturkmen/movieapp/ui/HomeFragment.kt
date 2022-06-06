@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.oguzhanturkmen.movieapp.MainViewModell
+import com.oguzhanturkmen.movieapp.MainViewModel
 import com.oguzhanturkmen.movieapp.R
 import com.oguzhanturkmen.movieapp.databinding.FragmentHomeBinding
 import com.oguzhanturkmen.movieapp.model.Movies
@@ -20,7 +20,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     val viewModel by lazy{
-        ViewModelProvider(this,defaultViewModelProviderFactory).get(MainViewModell::class.java)
+        ViewModelProvider(this,defaultViewModelProviderFactory).get(MainViewModel::class.java)
     }
     private lateinit var rvAdapter: rvAdapter
     override fun onCreateView(

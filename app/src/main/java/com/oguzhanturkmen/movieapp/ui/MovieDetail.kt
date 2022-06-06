@@ -9,9 +9,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
-import com.oguzhanturkmen.movieapp.MainViewModell
+import com.oguzhanturkmen.movieapp.MainViewModel
 import com.oguzhanturkmen.movieapp.POSTER_PATH
-import com.oguzhanturkmen.movieapp.R
 import com.oguzhanturkmen.movieapp.databinding.FragmentMovieDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -21,7 +20,7 @@ class MovieDetail : Fragment() {
     private lateinit var binding: FragmentMovieDetailBinding
     val args: MovieDetailArgs by navArgs()
     val viewModel by lazy {
-        ViewModelProvider(this, defaultViewModelProviderFactory).get(MainViewModell::class.java)
+        ViewModelProvider(this, defaultViewModelProviderFactory).get(MainViewModel::class.java)
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

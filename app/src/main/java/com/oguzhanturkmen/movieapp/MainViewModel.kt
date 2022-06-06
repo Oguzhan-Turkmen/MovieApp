@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModell @Inject constructor(private val repository: RetrofitRepository) : ViewModel() {
+class MainViewModel @Inject constructor(private val repository: RetrofitRepository) : ViewModel() {
     val popularMoviesList: MutableLiveData<Movies> = MutableLiveData()
     val searchMoviesList: MutableLiveData<Movies> = MutableLiveData()
     val savedlivedata = MutableLiveData<List<Movie>>()
@@ -46,5 +46,6 @@ class MainViewModell @Inject constructor(private val repository: RetrofitReposit
 
     fun deleteMovies(movie: Movie) = viewModelScope.launch {
         repository.deleteMovies(movie)
+        getSavedMovies()
     }
 }
