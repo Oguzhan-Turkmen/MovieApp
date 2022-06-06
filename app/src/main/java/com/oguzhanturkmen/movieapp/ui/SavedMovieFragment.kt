@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
@@ -21,7 +22,7 @@ class SavedMovieFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var rvAdapter: rvAdapter
     val viewModel by lazy {
-        ViewModelProvider(this, defaultViewModelProviderFactory).get(MainViewModel::class.java)
+        ViewModelProvider(this).get(MainViewModel::class.java)
     }
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,6 +36,10 @@ class SavedMovieFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         rvAdapter = rvAdapter()
         binding.rvSavedMovies.adapter = rvAdapter
+        rvAdapter.setOnItemClickListener {
+            val action = SavedMovieFragmentDirections.actionSavedMovieFragmentToMovieDetail(it)
+            findNavController().navigate(action)
+        }
         viewModel.savedlivedata.observe(viewLifecycleOwner, Observer {
             rvAdapter.differ.submitList(it)
         })

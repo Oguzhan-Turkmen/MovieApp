@@ -20,7 +20,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class SearchMovieFragment : Fragment() {
     private lateinit var binding: FragmentSearchMovieBinding
     val viewModell by lazy{
-        ViewModelProvider(this,defaultViewModelProviderFactory).get(MainViewModel::class.java)
+        ViewModelProvider(this).get(MainViewModel::class.java)
     }
     private lateinit var rvAdapter: rvAdapter
     override fun onCreateView(
@@ -31,13 +31,8 @@ class SearchMovieFragment : Fragment() {
         rvAdapter = rvAdapter()
         binding.rvSearchMovies.adapter = rvAdapter
         rvAdapter.setOnItemClickListener {
-            val bundle = Bundle().apply {
-                putSerializable("movie",it)
-            }
-            findNavController().navigate(
-                R.id.action_searchMovieFragment_to_movieDetail,bundle
-
-            )
+           val action = SearchMovieFragmentDirections.actionSearchMovieFragmentToMovieDetail(it)
+            findNavController().navigate(action)
         }
         binding.etSearch.addTextChangedListener { editable ->
             editable?.let{

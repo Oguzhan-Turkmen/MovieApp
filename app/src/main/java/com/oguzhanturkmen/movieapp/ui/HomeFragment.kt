@@ -15,12 +15,11 @@ import com.oguzhanturkmen.movieapp.model.Movies
 import com.oguzhanturkmen.movieapp.rvAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
-
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     val viewModel by lazy{
-        ViewModelProvider(this,defaultViewModelProviderFactory).get(MainViewModel::class.java)
+        ViewModelProvider(this).get(MainViewModel::class.java)
     }
     private lateinit var rvAdapter: rvAdapter
     override fun onCreateView(
@@ -32,12 +31,8 @@ class HomeFragment : Fragment() {
         val recylerView = binding.rvHomeFragment
         recylerView.adapter = rvAdapter
         rvAdapter.setOnItemClickListener {
-            val bundle = Bundle().apply {
-                putSerializable("movie",it)
-            }
-            findNavController().navigate(
-                R.id.action_homeFragment_to_movieDetail,bundle
-            )
+            val action =HomeFragmentDirections.actionHomeFragmentToMovieDetail(it)
+            findNavController().navigate(action)
         }
         viewModel.getObserverLiveData().observe(this,object: Observer<Movies> {
             override fun onChanged(t: Movies?) {
