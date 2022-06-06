@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.oguzhanturkmen.movieapp.onboarding.screens.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_viewPagerFragment"
+            app:destination="@id/viewPagerFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashFragment_to_homeFragment2"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewPagerFragment"
+        android:name="com.oguzhanturkmen.movieapp.onboarding.ViewPagerFragment"
+        android:label="fragment_view_pager"
+        tools:layout="@layout/fragment_view_pager" >
+        <action
+            android:id="@+id/action_viewPagerFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/viewPagerFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.oguzhanturkmen.movieapp.ui.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_movieDetail"
+            app:destination="@id/movieDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/savedMovieFragment"
+        android:name="com.oguzhanturkmen.movieapp.ui.SavedMovieFragment"
+        android:label="fragment_saved_movie"
+        tools:layout="@layout/fragment_saved_movie" >
+        <action
+            android:id="@+id/action_savedMovieFragment_to_movieDetail"
+            app:destination="@id/movieDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchMovieFragment"
+        android:name="com.oguzhanturkmen.movieapp.ui.SearchMovieFragment"
+        android:label="fragment_search_movie"
+        tools:layout="@layout/fragment_search_movie" >
+        <action
+            android:id="@+id/action_searchMovieFragment_to_movieDetail"
+            app:destination="@id/movieDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieDetail"
+        android:name="com.oguzhanturkmen.movieapp.ui.MovieDetail"
+        android:label="fragment_movie_detail"
+        tools:layout="@layout/fragment_movie_detail" >
+        <argument
+            android:name="movie"
+            app:argType="com.oguzhanturkmen.movieapp.model.Movie" />
+    </fragment>
+</navigation>
