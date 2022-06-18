@@ -11,4 +11,4 @@
 * Splash Screen
 * Pagination
 * Onboarding Screen
-* Picasso
+* Glide
