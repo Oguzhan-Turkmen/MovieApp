@@ -1,8 +1,9 @@
-package com.oguzhanturkmen.movieapp
+package com.oguzhanturkmen.movieapp.ui
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.oguzhanturkmen.movieapp.API.RetrofitRepository
 import com.oguzhanturkmen.movieapp.model.Movie
 import com.oguzhanturkmen.movieapp.model.Movies
 import dagger.hilt.android.lifecycle.HiltViewModel

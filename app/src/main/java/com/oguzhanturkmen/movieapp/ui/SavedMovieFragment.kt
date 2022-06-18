@@ -11,9 +11,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
-import com.oguzhanturkmen.movieapp.MainViewModel
 import com.oguzhanturkmen.movieapp.databinding.FragmentSavedMovieBinding
-import com.oguzhanturkmen.movieapp.rvAdapter
+import com.oguzhanturkmen.movieapp.adapters.rvAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -72,4 +71,5 @@ class SavedMovieFragment : Fragment() {
             attachToRecyclerView(binding.rvSavedMovies)
         }
     }
+
 }

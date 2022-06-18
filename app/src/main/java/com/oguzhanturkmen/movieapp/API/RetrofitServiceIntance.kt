@@ -1,8 +1,8 @@
-package com.oguzhanturkmen.movieapp
+package com.oguzhanturkmen.movieapp.API
 
+import com.oguzhanturkmen.movieapp.API_KEY
 import com.oguzhanturkmen.movieapp.model.Movies
 import retrofit2.Call
-import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 

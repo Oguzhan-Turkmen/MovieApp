@@ -8,11 +8,9 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.oguzhanturkmen.movieapp.MainViewModel
-import com.oguzhanturkmen.movieapp.R
 import com.oguzhanturkmen.movieapp.databinding.FragmentHomeBinding
 import com.oguzhanturkmen.movieapp.model.Movies
-import com.oguzhanturkmen.movieapp.rvAdapter
+import com.oguzhanturkmen.movieapp.adapters.rvAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -38,8 +36,6 @@ class HomeFragment : Fragment() {
             override fun onChanged(t: Movies?) {
                 if ( t!= null){
                 rvAdapter.differ.submitList(t.results)
-
-                   // rvAdapter.setList(t.results)
                 }
             }
 

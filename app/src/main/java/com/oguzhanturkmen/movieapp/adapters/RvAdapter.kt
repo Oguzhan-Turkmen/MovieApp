@@ -1,4 +1,4 @@
-package com.oguzhanturkmen.movieapp
+package com.oguzhanturkmen.movieapp.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.oguzhanturkmen.movieapp.POSTER_PATH
+import com.oguzhanturkmen.movieapp.R
 import com.oguzhanturkmen.movieapp.model.Movie
 import kotlinx.android.synthetic.main.populer_movie_item.view.*
 
@@ -28,16 +30,16 @@ class rvAdapter: RecyclerView.Adapter<rvAdapter.MyHolderView>() {
     inner class MyHolderView(itemview:View) : RecyclerView.ViewHolder(itemview){}
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): rvAdapter.MyHolderView {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolderView {
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.populer_movie_item, parent, false)
         return MyHolderView(view)
     }
     private var onItemClickListener: ((Movie) -> Unit)? = null
-    override fun onBindViewHolder(holder: rvAdapter.MyHolderView, position: Int) {
+    override fun onBindViewHolder(holder: MyHolderView, position: Int) {
         val movie = differ.currentList[position]
         holder.itemView.apply {
-            Glide.with(this).load(POSTER_PATH+ movie.poster_path).into(movieImage)
+            Glide.with(this).load(POSTER_PATH + movie.poster_path).into(movieImage)
             movieTitle.text = movie.title
             movieDescription.text = movie.overview
             moviePublishedAt.text = movie.release_date

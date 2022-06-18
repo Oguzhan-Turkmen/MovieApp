@@ -9,7 +9,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
-import com.oguzhanturkmen.movieapp.MainViewModel
 import com.oguzhanturkmen.movieapp.POSTER_PATH
 import com.oguzhanturkmen.movieapp.databinding.FragmentMovieDetailBinding
 import dagger.hilt.android.AndroidEntryPoint

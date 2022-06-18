@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="36dp"
         android:layout_marginBottom="48dp"
-        android:text="İlerle"
+        android:text="Next"
         android:textAlignment="center"
         android:textColor="@color/blue"
         android:textSize="25dp"

@@ -18,8 +18,8 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="259dp"
-        android:layout_height="116dp"
+        android:layout_width="266dp"
+        android:layout_height="150dp"
         android:layout_marginBottom="116dp"
         android:text="@string/second_screen_text"
         android:textAlignment="center"
@@ -34,11 +34,11 @@
 
     <TextView
         android:id="@+id/finish"
-        android:layout_width="59dp"
-        android:layout_height="38dp"
+        android:layout_width="74dp"
+        android:layout_height="41dp"
         android:layout_marginEnd="44dp"
         android:layout_marginBottom="72dp"
-        android:text="Bitir"
+        android:text="Finish"
         android:textAlignment="center"
         android:textColor="@color/blue"
         android:textSize="25dp"

@@ -9,11 +9,9 @@ import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.oguzhanturkmen.movieapp.MainViewModel
-import com.oguzhanturkmen.movieapp.R
 import com.oguzhanturkmen.movieapp.databinding.FragmentSearchMovieBinding
 import com.oguzhanturkmen.movieapp.model.Movies
-import com.oguzhanturkmen.movieapp.rvAdapter
+import com.oguzhanturkmen.movieapp.adapters.rvAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

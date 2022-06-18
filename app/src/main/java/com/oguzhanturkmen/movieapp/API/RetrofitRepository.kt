@@ -1,4 +1,4 @@
-package com.oguzhanturkmen.movieapp
+package com.oguzhanturkmen.movieapp.API
 
 import androidx.lifecycle.MutableLiveData
 import com.oguzhanturkmen.movieapp.database.MovieDatabase

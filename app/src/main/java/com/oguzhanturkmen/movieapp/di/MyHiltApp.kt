@@ -1,4 +1,4 @@
-package com.oguzhanturkmen.movieapp
+package com.oguzhanturkmen.movieapp.di
 
 import android.app.Application
 import dagger.Module

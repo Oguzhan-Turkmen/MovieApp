@@ -3,7 +3,7 @@ package com.oguzhanturkmen.movieapp.di
 
 import android.content.Context
 import com.oguzhanturkmen.movieapp.BASE_URL
-import com.oguzhanturkmen.movieapp.RetrofitServiceIntance
+import com.oguzhanturkmen.movieapp.API.RetrofitServiceIntance
 import com.oguzhanturkmen.movieapp.database.MovieDao
 import com.oguzhanturkmen.movieapp.database.MovieDatabase
 import com.squareup.moshi.Moshi
@@ -31,21 +31,15 @@ class AppModule (){
     fun getRoomDbInstance(@ApplicationContext appContext: Context):MovieDatabase{
         return MovieDatabase.createDatabase(appContext)
     }
-    /*@Singleton
-    @Provides
-    fun provideAppContext( application: Application):Context{
-        return application.applicationContext
-    }*/
-
     @Singleton
     @Provides
-    fun getRetrofitService(retrofit: Retrofit):RetrofitServiceIntance{
+    fun getRetrofitService(retrofit: Retrofit): RetrofitServiceIntance {
         return retrofit.create(RetrofitServiceIntance::class.java)
     }
 
     @Singleton
     @Provides
-    fun getRetrofitInstance(moshi: Moshi):Retrofit{
+    fun getRetrofitInstance():Retrofit{
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
